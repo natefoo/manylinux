@@ -137,8 +137,9 @@ yum -y erase wireless-tools gtk2 libX11 hicolor-icon-theme \
 yum -y install ${MANYLINUX1_DEPS}
 yum -y clean all > /dev/null 2>&1
 yum list installed
+## we DO need libpython*.a
 # we don't need libpython*.a, and they're many megabytes
-find /opt/_internal -name '*.a' -print0 | xargs -0 rm -f
+#find /opt/_internal -name '*.a' -print0 | xargs -0 rm -f
 # Strip what we can -- and ignore errors, because this just attempts to strip
 # *everything*, including non-ELF files:
 find /opt/_internal -type f -print0 \
